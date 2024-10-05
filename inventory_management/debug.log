@@ -1,0 +1,1475 @@
+(0.016) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL); (params None)
+(0.015) CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL); args=None; alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+(0.000) CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); args=None; alias=default
+CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model"); (params ())
+(0.000) CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model"); args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0001_initial', '2024-10-03 05:16:51.215010') RETURNING "django_migrations"."id"; args=('contenttypes', '0001_initial', '2024-10-03 05:16:51.215010'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL); (params None)
+(0.000) CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL); args=None; alias=default
+CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE); (params None)
+(0.000) CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE); args=None; alias=default
+CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+(0.000) CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL); (params None)
+(0.000) CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL); args=None; alias=default
+CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+(0.000) CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+(0.000) CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename"); (params None)
+(0.016) CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename"); args=None; alias=default
+CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params None)
+(0.000) CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); args=None; alias=default
+CREATE UNIQUE INDEX "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" ON "auth_group_permissions" ("group_id", "permission_id"); (params None)
+(0.000) CREATE UNIQUE INDEX "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" ON "auth_group_permissions" ("group_id", "permission_id"); args=None; alias=default
+CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); (params None)
+(0.000) CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); args=None; alias=default
+CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); (params None)
+(0.000) CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); args=None; alias=default
+CREATE UNIQUE INDEX "auth_user_groups_user_id_group_id_94350c0c_uniq" ON "auth_user_groups" ("user_id", "group_id"); (params None)
+(0.000) CREATE UNIQUE INDEX "auth_user_groups_user_id_group_id_94350c0c_uniq" ON "auth_user_groups" ("user_id", "group_id"); args=None; alias=default
+CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); (params None)
+(0.000) CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); args=None; alias=default
+CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); (params None)
+(0.000) CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); args=None; alias=default
+CREATE UNIQUE INDEX "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" ON "auth_user_user_permissions" ("user_id", "permission_id"); (params None)
+(0.000) CREATE UNIQUE INDEX "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" ON "auth_user_user_permissions" ("user_id", "permission_id"); args=None; alias=default
+CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); (params None)
+(0.000) CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); args=None; alias=default
+CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); (params None)
+(0.000) CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.015) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0001_initial', '2024-10-03 05:16:51.338866') RETURNING "django_migrations"."id"; args=('auth', '0001_initial', '2024-10-03 05:16:51.338866'); alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+(0.031) CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params None)
+(0.000) CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); args=None; alias=default
+CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params None)
+(0.000) CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); args=None; alias=default
+(0.047) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.016) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0001_initial', '2024-10-03 05:16:51.480567') RETURNING "django_migrations"."id"; args=('admin', '0001_initial', '2024-10-03 05:16:51.480567'); alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "action_time" datetime NOT NULL); (params None)
+(0.016) CREATE TABLE "new__django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "action_time" datetime NOT NULL); args=None; alias=default
+INSERT INTO "new__django_admin_log" ("id", "object_id", "object_repr", "action_flag", "change_message", "content_type_id", "user_id", "action_time") SELECT "id", "object_id", "object_repr", "action_flag", "change_message", "content_type_id", "user_id", "action_time" FROM "django_admin_log"; (params ())
+(0.000) INSERT INTO "new__django_admin_log" ("id", "object_id", "object_repr", "action_flag", "change_message", "content_type_id", "user_id", "action_time") SELECT "id", "object_id", "object_repr", "action_flag", "change_message", "content_type_id", "user_id", "action_time" FROM "django_admin_log"; args=(); alias=default
+DROP TABLE "django_admin_log"; (params ())
+(0.000) DROP TABLE "django_admin_log"; args=(); alias=default
+ALTER TABLE "new__django_admin_log" RENAME TO "django_admin_log"; (params ())
+(0.000) ALTER TABLE "new__django_admin_log" RENAME TO "django_admin_log"; args=(); alias=default
+CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params ())
+(0.016) CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); args=(); alias=default
+CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params ())
+(0.000) CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0002_logentry_remove_auto_add', '2024-10-03 05:16:51.577980') RETURNING "django_migrations"."id"; args=('admin', '0002_logentry_remove_auto_add', '2024-10-03 05:16:51.577980'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0003_logentry_add_action_flag_choices', '2024-10-03 05:16:51.610751') RETURNING "django_migrations"."id"; args=('admin', '0003_logentry_add_action_flag_choices', '2024-10-03 05:16:51.610751'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, "name" varchar(100) NULL); (params None)
+(0.016) CREATE TABLE "new__django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, "name" varchar(100) NULL); args=None; alias=default
+INSERT INTO "new__django_content_type" ("id", "app_label", "model", "name") SELECT "id", "app_label", "model", "name" FROM "django_content_type"; (params ())
+(0.000) INSERT INTO "new__django_content_type" ("id", "app_label", "model", "name") SELECT "id", "app_label", "model", "name" FROM "django_content_type"; args=(); alias=default
+DROP TABLE "django_content_type"; (params ())
+(0.000) DROP TABLE "django_content_type"; args=(); alias=default
+ALTER TABLE "new__django_content_type" RENAME TO "django_content_type"; (params ())
+(0.000) ALTER TABLE "new__django_content_type" RENAME TO "django_content_type"; args=(); alias=default
+CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model"); (params ())
+(0.000) CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model"); args=(); alias=default
+ALTER TABLE "django_content_type" DROP COLUMN "name"; (params ())
+(0.000) ALTER TABLE "django_content_type" DROP COLUMN "name"; args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0002_remove_content_type_name', '2024-10-03 05:16:51.694194') RETURNING "django_migrations"."id"; args=('contenttypes', '0002_remove_content_type_name', '2024-10-03 05:16:51.694194'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL); (params None)
+(0.000) CREATE TABLE "new__auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL); args=None; alias=default
+INSERT INTO "new__auth_permission" ("id", "content_type_id", "codename", "name") SELECT "id", "content_type_id", "codename", "name" FROM "auth_permission"; (params ())
+(0.000) INSERT INTO "new__auth_permission" ("id", "content_type_id", "codename", "name") SELECT "id", "content_type_id", "codename", "name" FROM "auth_permission"; args=(); alias=default
+DROP TABLE "auth_permission"; (params ())
+(0.000) DROP TABLE "auth_permission"; args=(); alias=default
+ALTER TABLE "new__auth_permission" RENAME TO "auth_permission"; (params ())
+(0.000) ALTER TABLE "new__auth_permission" RENAME TO "auth_permission"; args=(); alias=default
+CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename"); (params ())
+(0.000) CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename"); args=(); alias=default
+CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params ())
+(0.000) CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0002_alter_permission_name_max_length', '2024-10-03 05:16:51.739250') RETURNING "django_migrations"."id"; args=('auth', '0002_alter_permission_name_max_length', '2024-10-03 05:16:51.739250'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "email" varchar(254) NOT NULL); (params None)
+(0.000) CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "email" varchar(254) NOT NULL); args=None; alias=default
+INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "is_staff", "is_active", "date_joined", "email") SELECT "id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "is_staff", "is_active", "date_joined", "email" FROM "auth_user"; (params ())
+(0.000) INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "is_staff", "is_active", "date_joined", "email") SELECT "id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "is_staff", "is_active", "date_joined", "email" FROM "auth_user"; args=(); alias=default
+DROP TABLE "auth_user"; (params ())
+(0.000) DROP TABLE "auth_user"; args=(); alias=default
+ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+(0.000) ALTER TABLE "new__auth_user" RENAME TO "auth_user"; args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0003_alter_user_email_max_length', '2024-10-03 05:16:51.809770') RETURNING "django_migrations"."id"; args=('auth', '0003_alter_user_email_max_length', '2024-10-03 05:16:51.809770'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0004_alter_user_username_opts', '2024-10-03 05:16:51.850501') RETURNING "django_migrations"."id"; args=('auth', '0004_alter_user_username_opts', '2024-10-03 05:16:51.850501'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_login" datetime NULL); (params None)
+(0.000) CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_login" datetime NULL); args=None; alias=default
+INSERT INTO "new__auth_user" ("id", "password", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "last_login") SELECT "id", "password", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "last_login" FROM "auth_user"; (params ())
+(0.000) INSERT INTO "new__auth_user" ("id", "password", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "last_login") SELECT "id", "password", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "last_login" FROM "auth_user"; args=(); alias=default
+DROP TABLE "auth_user"; (params ())
+(0.000) DROP TABLE "auth_user"; args=(); alias=default
+ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+(0.000) ALTER TABLE "new__auth_user" RENAME TO "auth_user"; args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0005_alter_user_last_login_null', '2024-10-03 05:16:51.901337') RETURNING "django_migrations"."id"; args=('auth', '0005_alter_user_last_login_null', '2024-10-03 05:16:51.901337'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0006_require_contenttypes_0002', '2024-10-03 05:16:51.911267') RETURNING "django_migrations"."id"; args=('auth', '0006_require_contenttypes_0002', '2024-10-03 05:16:51.911267'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.015) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0007_alter_validators_add_error_messages', '2024-10-03 05:16:51.954975') RETURNING "django_migrations"."id"; args=('auth', '0007_alter_validators_add_error_messages', '2024-10-03 05:16:51.954975'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "username" varchar(150) NOT NULL UNIQUE); (params None)
+(0.000) CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "username" varchar(150) NOT NULL UNIQUE); args=None; alias=default
+INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "username") SELECT "id", "password", "last_login", "is_superuser", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "username" FROM "auth_user"; (params ())
+(0.000) INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "username") SELECT "id", "password", "last_login", "is_superuser", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined", "username" FROM "auth_user"; args=(); alias=default
+DROP TABLE "auth_user"; (params ())
+(0.000) DROP TABLE "auth_user"; args=(); alias=default
+ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+(0.000) ALTER TABLE "new__auth_user" RENAME TO "auth_user"; args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0008_alter_user_username_max_length', '2024-10-03 05:16:51.993711') RETURNING "django_migrations"."id"; args=('auth', '0008_alter_user_username_max_length', '2024-10-03 05:16:51.993711'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_name" varchar(150) NOT NULL); (params None)
+(0.000) CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "last_name" varchar(150) NOT NULL); args=None; alias=default
+INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "email", "is_staff", "is_active", "date_joined", "last_name") SELECT "id", "password", "last_login", "is_superuser", "username", "first_name", "email", "is_staff", "is_active", "date_joined", "last_name" FROM "auth_user"; (params ())
+(0.000) INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "email", "is_staff", "is_active", "date_joined", "last_name") SELECT "id", "password", "last_login", "is_superuser", "username", "first_name", "email", "is_staff", "is_active", "date_joined", "last_name" FROM "auth_user"; args=(); alias=default
+DROP TABLE "auth_user"; (params ())
+(0.015) DROP TABLE "auth_user"; args=(); alias=default
+ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+(0.000) ALTER TABLE "new__auth_user" RENAME TO "auth_user"; args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0009_alter_user_last_name_max_length', '2024-10-03 05:16:52.057265') RETURNING "django_migrations"."id"; args=('auth', '0009_alter_user_last_name_max_length', '2024-10-03 05:16:52.057265'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "new__auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(150) NOT NULL UNIQUE); (params None)
+(0.000) CREATE TABLE "new__auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(150) NOT NULL UNIQUE); args=None; alias=default
+INSERT INTO "new__auth_group" ("id", "name") SELECT "id", "name" FROM "auth_group"; (params ())
+(0.000) INSERT INTO "new__auth_group" ("id", "name") SELECT "id", "name" FROM "auth_group"; args=(); alias=default
+DROP TABLE "auth_group"; (params ())
+(0.000) DROP TABLE "auth_group"; args=(); alias=default
+ALTER TABLE "new__auth_group" RENAME TO "auth_group"; (params ())
+(0.000) ALTER TABLE "new__auth_group" RENAME TO "auth_group"; args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0010_alter_group_name_max_length', '2024-10-03 05:16:52.123047') RETURNING "django_migrations"."id"; args=('auth', '0010_alter_group_name_max_length', '2024-10-03 05:16:52.123047'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.015) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0011_update_proxy_permissions', '2024-10-03 05:16:52.162637') RETURNING "django_migrations"."id"; args=('auth', '0011_update_proxy_permissions', '2024-10-03 05:16:52.162637'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.016) BEGIN; args=None; alias=default
+CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "last_name" varchar(150) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "first_name" varchar(150) NOT NULL); (params None)
+(0.016) CREATE TABLE "new__auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "last_name" varchar(150) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "first_name" varchar(150) NOT NULL); args=None; alias=default
+INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "last_name", "email", "is_staff", "is_active", "date_joined", "first_name") SELECT "id", "password", "last_login", "is_superuser", "username", "last_name", "email", "is_staff", "is_active", "date_joined", "first_name" FROM "auth_user"; (params ())
+(0.000) INSERT INTO "new__auth_user" ("id", "password", "last_login", "is_superuser", "username", "last_name", "email", "is_staff", "is_active", "date_joined", "first_name") SELECT "id", "password", "last_login", "is_superuser", "username", "last_name", "email", "is_staff", "is_active", "date_joined", "first_name" FROM "auth_user"; args=(); alias=default
+DROP TABLE "auth_user"; (params ())
+(0.000) DROP TABLE "auth_user"; args=(); alias=default
+ALTER TABLE "new__auth_user" RENAME TO "auth_user"; (params ())
+(0.000) ALTER TABLE "new__auth_user" RENAME TO "auth_user"; args=(); alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0012_alter_user_first_name_max_length', '2024-10-03 05:16:52.245086') RETURNING "django_migrations"."id"; args=('auth', '0012_alter_user_first_name_max_length', '2024-10-03 05:16:52.245086'); alias=default
+(0.016) PRAGMA foreign_key_check; args=None; alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "inventory_inventoryitem" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "description" text NOT NULL, "quantity" integer NOT NULL, "price" decimal NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL); (params None)
+(0.000) CREATE TABLE "inventory_inventoryitem" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "description" text NOT NULL, "quantity" integer NOT NULL, "price" decimal NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL); args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('inventory', '0001_initial', '2024-10-03 05:16:52.271907') RETURNING "django_migrations"."id"; args=('inventory', '0001_initial', '2024-10-03 05:16:52.271907'); alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+(0.000) PRAGMA foreign_keys; args=None; alias=default
+(0.000) BEGIN; args=None; alias=default
+CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL); (params None)
+(0.000) CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL); args=None; alias=default
+(0.000) PRAGMA foreign_key_check; args=None; alias=default
+CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); (params None)
+(0.000) CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); args=None; alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+(0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('sessions', '0001_initial', '2024-10-03 05:16:52.317601') RETURNING "django_migrations"."id"; args=('sessions', '0001_initial', '2024-10-03 05:16:52.317601'); alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('admin', 'logentry') RETURNING "django_content_type"."id"; args=('admin', 'logentry'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add log entry', 1, 'add_logentry'), ('Can change log entry', 1, 'change_logentry'), ('Can delete log entry', 1, 'delete_logentry'), ('Can view log entry', 1, 'view_logentry') RETURNING "auth_permission"."id"; args=('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry', 'Can view log entry', 1, 'view_logentry'); alias=default
+(0.015) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'permission'), ('auth', 'group'), ('auth', 'user') RETURNING "django_content_type"."id"; args=('auth', 'permission', 'auth', 'group', 'auth', 'user'); alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('group', 'permission', 'user')); args=('auth', 'group', 'permission', 'user'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add permission', 2, 'add_permission'), ('Can change permission', 2, 'change_permission'), ('Can delete permission', 2, 'delete_permission'), ('Can view permission', 2, 'view_permission'), ('Can add group', 3, 'add_group'), ('Can change group', 3, 'change_group'), ('Can delete group', 3, 'delete_group'), ('Can view group', 3, 'view_group'), ('Can add user', 4, 'add_user'), ('Can change user', 4, 'change_user'), ('Can delete user', 4, 'delete_user'), ('Can view user', 4, 'view_user') RETURNING "auth_permission"."id"; args=('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can view permission', 2, 'view_permission', 'Can add group', 3, 'add_group', 'Can change group', 3, 'change_group', 'Can delete group', 3, 'delete_group', 'Can view group', 3, 'view_group', 'Can add user', 4, 'add_user', 'Can change user', 4, 'change_user', 'Can delete user', 4, 'delete_user', 'Can view user', 4, 'view_user'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('contenttypes', 'contenttype') RETURNING "django_content_type"."id"; args=('contenttypes', 'contenttype'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.015) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add content type', 5, 'add_contenttype'), ('Can change content type', 5, 'change_contenttype'), ('Can delete content type', 5, 'delete_contenttype'), ('Can view content type', 5, 'view_contenttype') RETURNING "auth_permission"."id"; args=('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype', 'Can view content type', 5, 'view_contenttype'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.016) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('sessions', 'session') RETURNING "django_content_type"."id"; args=('sessions', 'session'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add session', 6, 'add_session'), ('Can change session', 6, 'change_session'), ('Can delete session', 6, 'delete_session'), ('Can view session', 6, 'view_session') RETURNING "auth_permission"."id"; args=('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session', 'Can view session', 6, 'view_session'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'inventory'; args=('inventory',); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('inventory', 'inventoryitem') RETURNING "django_content_type"."id"; args=('inventory', 'inventoryitem'); alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'inventory' AND "django_content_type"."model" IN ('inventoryitem')); args=('inventory', 'inventoryitem'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(7,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.016) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add inventory item', 7, 'add_inventoryitem'), ('Can change inventory item', 7, 'change_inventoryitem'), ('Can delete inventory item', 7, 'delete_inventoryitem'), ('Can view inventory item', 7, 'view_inventoryitem') RETURNING "auth_permission"."id"; args=('Can add inventory item', 7, 'add_inventoryitem', 'Can change inventory item', 7, 'change_inventoryitem', 'Can delete inventory item', 7, 'delete_inventoryitem', 'Can view inventory item', 7, 'view_inventoryitem'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'inventory'; args=('inventory',); alias=default
+Watching for file changes with StatReloader
+Waiting for apps ready_event.
+Apps ready_event triggered. Sending autoreload_started signal.
+Watching dir C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates with glob **/*.
+Watching dir C:\Users\Admin\Desktop\Inventory Management System\inventory_management\locale with glob **/*.mo.
+Watching dir C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale with glob **/*.mo.
+Watching dir C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory\locale with glob **/*.mo.
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\filters\__init__.py first seen with mtime 1727846839.9928238
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\signals.py first seen with mtime 1727846855.7826862
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\filters.py first seen with mtime 1727846842.8703663
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\enums.py first seen with mtime 1727846855.760834
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\duration.py first seen with mtime 1727846856.5117931
+File D:\python\Lib\subprocess.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\apps.py first seen with mtime 1727846921.0787065
+File D:\python\Lib\encodings\utf_8.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\serializers\python.py first seen with mtime 1727846855.4340277
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\functions\mixins.py first seen with mtime 1727846855.832353
+File D:\python\Lib\xml\dom\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\apps.py first seen with mtime 1727846855.1201355
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\handlers\base.py first seen with mtime 1727846855.3088675
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\exceptions.py first seen with mtime 1727846855.698255
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\mixins.py first seen with mtime 1727846921.1144655
+File D:\python\DLLs\_overlapped.pyd first seen with mtime 1686142894.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\generated.py first seen with mtime 1727846855.793613
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\lookups.py first seen with mtime 1727846855.7697735
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\query.py first seen with mtime 1727846855.7777205
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\templatetags\tz.py first seen with mtime 1727846856.4074934
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\api.py first seen with mtime 1727846851.7716124
+File D:\python\Lib\gzip.py first seen with mtime 1686142818.0
+File D:\python\Lib\urllib\error.py first seen with mtime 1686142818.0
+File D:\python\Lib\fnmatch.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\wsgi.py first seen with mtime 1727846855.1837068
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\management\__init__.py first seen with mtime 1727846855.1449697
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\storage\base.py first seen with mtime 1727846855.2909904
+File D:\python\Lib\html\parser.py first seen with mtime 1686142818.0
+File D:\python\Lib\unittest\mock.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\generics.py first seen with mtime 1727846921.1095004
+File D:\python\Lib\mimetypes.py first seen with mtime 1686142818.0
+File D:\python\Lib\statistics.py first seen with mtime 1686142818.0
+File D:\python\Lib\tokenize.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\mixins.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\conf\__init__.py first seen with mtime 1727846841.5313547
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\files.py first seen with mtime 1727846855.7916281
+File D:\python\Lib\importlib\metadata\_functools.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\validators.py first seen with mtime 1727846855.1807284
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\test\html.py first seen with mtime 1727846856.416432
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\model_meta.py first seen with mtime 1727846921.8366182
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\admin.py first seen with mtime 1727846845.849367
+File D:\python\Lib\operator.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\widgets.py first seen with mtime 1727846842.891225
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\crypto.py first seen with mtime 1727846856.4929187
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\security\__init__.py first seen with mtime 1727846855.2522469
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\postgresql\psycopg_any.py first seen with mtime 1727846855.6595156
+File D:\python\Lib\hashlib.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\lorem_ipsum.py first seen with mtime 1727846856.588279
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\proxy.py first seen with mtime 1727846855.8015604
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\response.py first seen with mtime 1727846856.3399472
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\i18n.py first seen with mtime 1727846856.7184052
+File D:\python\Lib\bz2.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\apps.py first seen with mtime 1727846845.8523486
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\decorators.py first seen with mtime 1727846845.8702276
+File D:\python\Lib\json\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\models.py first seen with mtime 1727847012.7266529
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\filters\reindent.py first seen with mtime 1727846840.001766
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\_ipaddress.py first seen with mtime 1727846996.4868238
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\filters\tokens.py first seen with mtime 1727846840.007725
+File D:\python\Lib\http\cookies.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\utils.py first seen with mtime 1727846839.9570646
+File D:\python\Lib\getpass.py first seen with mtime 1686142818.0
+File D:\python\Lib\multiprocessing\process.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\backends\__init__.py first seen with mtime 1727846853.3818052
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\__init__.py first seen with mtime 1727846851.76764
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\decorators\common.py first seen with mtime 1727846856.731317
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\forms\__init__.py first seen with mtime 1727846851.869953
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\termcolors.py first seen with mtime 1727846856.6339712
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\templatetags\base.py first seen with mtime 1727846844.9007385
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_modify.py first seen with mtime 1727846844.8967652
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\functions\window.py first seen with mtime 1727846855.836327
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\deprecation.py first seen with mtime 1727846856.509808
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\constants.py first seen with mtime 1727846855.751893
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\defaults.py first seen with mtime 1727846856.715426
+File D:\python\Lib\enum.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\urls\base.py first seen with mtime 1727846856.4392798
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\backends\django.py first seen with mtime 1727846856.3647811
+File D:\python\Lib\email\quoprimime.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\authentication.py first seen with mtime 1727846921.082679
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory\__init__.py first seen with mtime 1727850396.7764626
+File D:\python\Lib\asyncio\base_subprocess.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\http\request.py first seen with mtime 1727846856.2594862
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\checks.py first seen with mtime 1727846855.122123
+File D:\python\Lib\dataclasses.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\dispatch\dispatcher.py first seen with mtime 1727846855.8611598
+File D:\python\Lib\linecache.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\token_blacklist\models.py first seen with mtime 1727847012.8945267
+File D:\python\Lib\asyncio\windows_utils.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\html.py first seen with mtime 1727846921.8266869
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\related.py first seen with mtime 1727846855.8045404
+File D:\python\Lib\traceback.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\fields\ranges.py first seen with mtime 1727846851.863993
+File D:\python\Lib\json\encoder.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\relations.py first seen with mtime 1727846921.12738
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\__init__.py first seen with mtime 1727846855.2164867
+File D:\python\Lib\asyncio\locks.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\taskgroups.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\compat.py first seen with mtime 1727846921.093605
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\reverse_related.py first seen with mtime 1727846855.8154657
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\base.py first seen with mtime 1727846855.2661548
+File D:\python\Lib\email\_policybase.py first seen with mtime 1686142818.0
+File D:\python\Lib\weakref.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\base_futures.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\extras.py first seen with mtime 1727846996.537485
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\autoreload.py first seen with mtime 1727846856.3012073
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\servers\basehttp.py first seen with mtime 1727846855.4469407
+File D:\python\Lib\email\feedparser.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\engine.py first seen with mtime 1727846856.3270323
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\model_checks.py first seen with mtime 1727846855.2323823
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\extensions.py first seen with mtime 1727846996.5345051
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\middleware\__init__.py first seen with mtime 1727846856.264454
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\functions\comparison.py first seen with mtime 1727846855.824406
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\ddl_references.py first seen with mtime 1727846855.4598553
+File D:\python\Lib\email\mime\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\logging\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\__init__.py first seen with mtime 1727846855.1658273
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\dateformat.py first seen with mtime 1727846856.4978876
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\__init__.py first seen with mtime 1727846839.9352095
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\asgiref\__init__.py first seen with mtime 1727846840.9651546
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\operations\__init__.py first seen with mtime 1727846855.7310345
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\forms.py first seen with mtime 1727846855.8740742
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_urls.py first seen with mtime 1727846844.8987515
+File D:\python\Lib\_weakrefset.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\helpers.py first seen with mtime 1727846842.8753347
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\forms.py first seen with mtime 1727846845.8742013
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\security\sessions.py first seen with mtime 1727846855.2601943
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\generic\list.py first seen with mtime 1727846857.4783044
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\lookups.py first seen with mtime 1727846851.825252
+File D:\python\DLLs\_lzma.pyd first seen with mtime 1686142894.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\admin.py first seen with mtime 1727846846.9758077
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\permissions.py first seen with mtime 1727846921.1244
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\middleware\cache.py first seen with mtime 1727846856.267434
+File D:\python\Lib\argparse.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\schema.py first seen with mtime 1727846855.6893146
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\loaders\base.py first seen with mtime 1727846856.3776934
+File D:\python\Lib\locale.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\cache\backends\filebased.py first seen with mtime 1727846855.2045674
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\numberformat.py first seen with mtime 1727846856.593247
+File D:\python\Lib\logging\config.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\postgresql\__init__.py first seen with mtime 1727846855.639649
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\storage\filesystem.py first seen with mtime 1727846855.2929745
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\compatibility\django_4_0.py first seen with mtime 1727846855.2502615
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\urls\exceptions.py first seen with mtime 1727846856.4571583
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\dateparse.py first seen with mtime 1727846856.4998734
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\creation.py first seen with mtime 1727846855.678387
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\fields\jsonb.py first seen with mtime 1727846851.8620067
+File D:\python\Lib\importlib\resources\abc.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\generic\edit.py first seen with mtime 1727846857.476318
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\apps.py first seen with mtime 1727846842.8614259
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\validation.py first seen with mtime 1727846855.4936292
+File D:\python\DLLs\select.pyd first seen with mtime 1686142894.0
+File D:\python\Lib\socket.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\base_tasks.py first seen with mtime 1686142818.0
+File D:\python\Lib\glob.py first seen with mtime 1686142818.0
+File D:\python\Lib\ctypes\_endian.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\lexer.py first seen with mtime 1727846839.9491189
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\timezone.py first seen with mtime 1727846921.843572
+File D:\python\Lib\asyncio\base_events.py first seen with mtime 1686142818.0
+File D:\python\Lib\concurrent\futures\thread.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\proactor_events.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\utils.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\regex_helper.py first seen with mtime 1727846856.5982113
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\models.py first seen with mtime 1727846842.8783145
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\utils.py first seen with mtime 1727846855.7240813
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\_os.py first seen with mtime 1727846856.468086
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\move.py first seen with mtime 1727846855.2741032
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\renderers.py first seen with mtime 1727846921.1293652
+File D:\python\DLLs\_zoneinfo.pyd first seen with mtime 1686142896.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\functions\math.py first seen with mtime 1727846855.829373
+File D:\python\Lib\multiprocessing\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\base.py first seen with mtime 1727846855.6734197
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\dates.py first seen with mtime 1727846856.5028534
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\tokens.py first seen with mtime 1727846839.9550796
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\management\base.py first seen with mtime 1727846855.3446279
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\decorators\csrf.py first seen with mtime 1727846856.7343006
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\urls\converters.py first seen with mtime 1727846856.4551716
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\choices.py first seen with mtime 1727846856.4889476
+File D:\python\Lib\importlib\metadata\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\calendar.py first seen with mtime 1686142818.0
+File D:\python\Lib\zipfile.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\formats.py first seen with mtime 1727846856.520733
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templatetags\rest_framework.py first seen with mtime 1727846921.8097973
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory_management\__init__.py first seen with mtime 1727846934.419412
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\formatting.py first seen with mtime 1727846921.8246965
+File D:\python\Lib\unittest\loader.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\caches.py first seen with mtime 1727846855.2214549
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\tree.py first seen with mtime 1727846856.6786723
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\exceptions.py first seen with mtime 1727847012.7246728
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\apps\__init__.py first seen with mtime 1727846841.52341
+File D:\python\Lib\logging\handlers.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\widgets.py first seen with mtime 1727846855.8869865
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\schemas\inspectors.py first seen with mtime 1727846921.5078247
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\urls\conf.py first seen with mtime 1727846856.4502065
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\creation.py first seen with mtime 1727846855.4777339
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\manager.py first seen with mtime 1727846855.771762
+File D:\python\Lib\_markupbase.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\translation\__init__.py first seen with mtime 1727846856.6876116
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\__init__.py first seen with mtime 1727846846.9718318
+File D:\python\Lib\copyreg.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\generic\base.py first seen with mtime 1727846857.371024
+File D:\python\Lib\ctypes\wintypes.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\_json.py first seen with mtime 1727846996.4888122
+File D:\python\Lib\asyncio\queues.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\schemas\generators.py first seen with mtime 1727846921.5058374
+File D:\python\Lib\concurrent\futures\_base.py first seen with mtime 1686142818.0
+File D:\python\Lib\re\_parser.py first seen with mtime 1686142818.0
+File D:\python\DLLs\unicodedata.pyd first seen with mtime 1686142896.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\schemas\coreapi.py first seen with mtime 1727846921.5038536
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\forms.py first seen with mtime 1727846846.985741
+File D:\python\Lib\re\_constants.py first seen with mtime 1686142818.0
+File D:\python\Lib\opcode.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\generator.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\shortcuts.py first seen with mtime 1727846841.5204298
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py first seen with mtime 1727846856.3061726
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\views\main.py first seen with mtime 1727846844.913651
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\renderers.py first seen with mtime 1727846855.8830135
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\apps\config.py first seen with mtime 1727846841.5263894
+File D:\python\DLLs\_decimal.pyd first seen with mtime 1686142894.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\finders.py first seen with mtime 1727846855.1251016
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\base.py first seen with mtime 1727846855.4717731
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\sql\subqueries.py first seen with mtime 1727846855.8522196
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\translation\trans_real.py first seen with mtime 1727846856.6965542
+File D:\python\Lib\email\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\__init__.py first seen with mtime 1727846855.693288
+File D:\python\Lib\numbers.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\checks.py first seen with mtime 1727846842.8634138
+File D:\python\Lib\email\encoders.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\management\color.py first seen with mtime 1727846855.3466148
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\expressions.py first seen with mtime 1727846855.7638147
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\models.py first seen with mtime 1727846853.37783
+File D:\python\Lib\graphlib.py first seen with mtime 1686142818.0
+File D:\python\Lib\importlib\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\csrf.py first seen with mtime 1727846856.7114534
+File D:\python\Lib\ctypes\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\coroutines.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\safestring.py first seen with mtime 1727846856.6319852
+File D:\python\Lib\collections\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\utils.py first seen with mtime 1727846855.4548888
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\serializers\__init__.py first seen with mtime 1727846855.4240947
+File D:\python\Lib\importlib\_abc.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\management\__init__.py first seen with mtime 1727846846.924152
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\options.py first seen with mtime 1727846842.881296
+File D:\python\Lib\asyncio\sslproto.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\templates.py first seen with mtime 1727846855.239337
+File D:\python\Lib\http\client.py first seen with mtime 1686142818.0
+File D:\python\Lib\importlib\resources\_legacy.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\loaders\filesystem.py first seen with mtime 1727846856.3816667
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\base_session.py first seen with mtime 1727846853.370876
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory\admin.py first seen with mtime 1727850396.6747177
+File D:\python\Lib\concurrent\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\policy.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\apps.py first seen with mtime 1727846851.7735987
+File D:\python\Lib\token.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\http\__init__.py first seen with mtime 1727846856.212799
+File D:\python\Lib\sqlite3\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\wsgiref\headers.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\signals.py first seen with mtime 1727846855.4628353
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\management\__init__.py first seen with mtime 1727846848.316805
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\constraints.py first seen with mtime 1727846855.7548733
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory\apps.py first seen with mtime 1727850396.715611
+File D:\python\DLLs\_bz2.pyd first seen with mtime 1686142896.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\signals.py first seen with mtime 1727846845.8960555
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\forms\array.py first seen with mtime 1727846851.8729315
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\search.py first seen with mtime 1727846851.8302186
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\schemas\openapi.py first seen with mtime 1727846921.5108068
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\__init__.py first seen with mtime 1727846855.7886465
+File D:\python\Lib\email\_encoded_words.py first seen with mtime 1686142818.0
+File D:\python\Lib\contextvars.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\hashable.py first seen with mtime 1727846856.5326526
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\connection.py first seen with mtime 1727846856.4909322
+File D:\python\Lib\html\entities.py first seen with mtime 1686142818.0
+File D:\python\Lib\importlib\resources\_common.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sites\shortcuts.py first seen with mtime 1727846854.1983228
+File D:\python\Lib\random.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\defaultfilters.py first seen with mtime 1727846856.314119
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\smartif.py first seen with mtime 1727846856.3419354
+File D:\python\Lib\base64.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\engine\grouping.py first seen with mtime 1727846839.9868653
+File D:\python\Lib\email\errors.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\exceptions.py first seen with mtime 1727846842.867386
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\asyncio.py first seen with mtime 1727846856.4740462
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\metadata.py first seen with mtime 1727846921.111487
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\fields\utils.py first seen with mtime 1727846851.8669722
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\__init__.py first seen with mtime 1727846855.4499235
+File D:\python\Lib\urllib\request.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\utils.py first seen with mtime 1727846855.1400015
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\security\base.py first seen with mtime 1727846855.254236
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\keywords.py first seen with mtime 1727846839.9471326
+File D:\python\Lib\zoneinfo\_tzpath.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\filters\output.py first seen with mtime 1727846839.9997802
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\related_lookups.py first seen with mtime 1727846855.8104992
+File D:\python\Lib\shutil.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\models.py first seen with mtime 1727846855.8800335
+File D:\python\Lib\json\decoder.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\models.py first seen with mtime 1727846845.8910866
+File D:\python\Lib\xml\dom\xmlbuilder.py first seen with mtime 1686142818.0
+File D:\python\DLLs\_ctypes.pyd first seen with mtime 1686142896.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\backends\base.py first seen with mtime 1727846853.384784
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\datastructures.py first seen with mtime 1727846856.4959016
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\views\__init__.py first seen with mtime 1727846844.9066963
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\templatetags\log.py first seen with mtime 1727846844.903715
+File D:\python\Lib\selectors.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\management\commands\__init__.py first seen with mtime 1727846855.1479492
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\hashers.py first seen with mtime 1727846845.8761885
+File D:\python\Lib\asyncio\trsock.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\management\sql.py first seen with mtime 1727846855.3495948
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\management\commands\runserver.py first seen with mtime 1727846855.1558948
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\utils.py first seen with mtime 1727846855.7846737
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\checks.py first seen with mtime 1727846921.0916202
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\__init__.py first seen with mtime 1727846996.4838433
+File D:\python\Lib\string.py first seen with mtime 1686142818.0
+File D:\python\Lib\dis.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\_parseaddr.py first seen with mtime 1686142818.0
+File D:\python\Lib\_compression.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\_header_value_parser.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\ipv6.py first seen with mtime 1727846856.5763593
+File D:\python\Lib\asyncio\log.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\forms\hstore.py first seen with mtime 1727846851.8749185
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\__init__.py first seen with mtime 1727846841.5164557
+File D:\python\Lib\contextlib.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\templatetags\i18n.py first seen with mtime 1727846856.399546
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\messages.py first seen with mtime 1727846855.230395
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\database.py first seen with mtime 1727846855.2234416
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\forms\ranges.py first seen with mtime 1727846851.8778994
+File D:\python\Lib\asyncio\windows_events.py first seen with mtime 1686142818.0
+File D:\python\Lib\gettext.py first seen with mtime 1686142818.0
+File D:\python\Lib\importlib\metadata\_itertools.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\test\signals.py first seen with mtime 1727846856.424382
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\formsets.py first seen with mtime 1727846855.877054
+File D:\python\Lib\bisect.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\_functions.py first seen with mtime 1727846855.6674614
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\log.py first seen with mtime 1727846856.585299
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\locks.py first seen with mtime 1727846855.2721148
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\_range.py first seen with mtime 1727846996.5275545
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\__init__.py first seen with mtime 1727846842.85249
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\http\response.py first seen with mtime 1727846856.2614722
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\fields.py first seen with mtime 1727846921.1045334
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\exceptions.py first seen with mtime 1727846853.3728676
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\operations.py first seen with mtime 1727846855.6873283
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\generic\detail.py first seen with mtime 1727846857.4733388
+File D:\python\Lib\email\mime\text.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\mime\base.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\backends.py first seen with mtime 1727846845.854336
+File D:\python\Lib\ssl.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\sql\where.py first seen with mtime 1727846855.8551993
+File D:\python\Lib\email\mime\multipart.py first seen with mtime 1686142818.0
+File D:\python\Lib\copy.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\status.py first seen with mtime 1727846921.1532066
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\settings.py first seen with mtime 1727847012.7326148
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\storage\memory.py first seen with mtime 1727846855.2979426
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\paginator.py first seen with mtime 1727846855.1727805
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\operations\base.py first seen with mtime 1727846855.7330232
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\cache\utils.py first seen with mtime 1727846855.1896713
+File D:\python\Lib\signal.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\checks.py first seen with mtime 1727846845.8632753
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\reverse.py first seen with mtime 1727846921.1402936
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\json.py first seen with mtime 1727846921.8316505
+File D:\python\Lib\decimal.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\uploadhandler.py first seen with mtime 1727846855.2820487
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\__init__.py first seen with mtime 1727846856.4660978
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\__init__.py first seen with mtime 1727846855.7439487
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\cache\backends\__init__.py first seen with mtime 1727846855.1916552
+File D:\python\Lib\asyncio\tasks.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\management\commands\runserver.py first seen with mtime 1727846855.3933012
+File D:\python\Lib\lzma.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\http.py first seen with mtime 1727846856.5584798
+File D:\python\DLLs\_sqlite3.pyd first seen with mtime 1686142894.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\async_checks.py first seen with mtime 1727846855.2194684
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\boundfield.py first seen with mtime 1727846855.8681145
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\exceptions.py first seen with mtime 1727846921.1005597
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\apps.py first seen with mtime 1727846846.9777937
+File D:\python\Lib\zoneinfo\_common.py first seen with mtime 1686142818.0
+File D:\python\Lib\unittest\signals.py first seen with mtime 1686142818.0
+File D:\python\DLLs\_hashlib.pyd first seen with mtime 1686142894.0
+File D:\python\Lib\asyncio\selector_events.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\errors.py first seen with mtime 1727846996.5325167
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\asgiref\local.py first seen with mtime 1727846840.9711187
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\http\multipartparser.py first seen with mtime 1727846856.217766
+File D:\python\Lib\asyncio\futures.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\signing.py first seen with mtime 1727846855.177747
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\models.py first seen with mtime 1727846846.98872
+File D:\python\DLLs\_uuid.pyd first seen with mtime 1686142894.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\fields.py first seen with mtime 1727846855.8720882
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sites\__init__.py first seen with mtime 1727846854.178456
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\conf\urls\__init__.py first seen with mtime 1727846842.8455307
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\loader.py first seen with mtime 1727846856.3339849
+File D:\python\Lib\csv.py first seen with mtime 1686142818.0
+File D:\python\Lib\pickle.py first seen with mtime 1686142818.0
+File D:\python\Lib\heapq.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\exceptions.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\protocols.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\validators.py first seen with mtime 1727846851.8391588
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\cache.py first seen with mtime 1727846856.4780183
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\loaders\app_directories.py first seen with mtime 1727846856.3757079
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\formatter.py first seen with mtime 1727846839.9451463
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\urls\resolvers.py first seen with mtime 1727846856.4601383
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\serializers.py first seen with mtime 1727846921.1482387
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\handlers\exception.py first seen with mtime 1727846855.3108537
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\options.py first seen with mtime 1727846855.773749
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\client.py first seen with mtime 1727846855.6764028
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\backends\__init__.py first seen with mtime 1727846856.3588204
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\images.py first seen with mtime 1727846855.2691343
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\request.py first seen with mtime 1727846921.1343327
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\token_blacklist\__init__.py first seen with mtime 1727847012.8885708
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\features.py first seen with mtime 1727846855.681368
+File D:\python\Lib\unittest\main.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\streams.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\loaders\cached.py first seen with mtime 1727846856.37968
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\_virtualenv.py first seen with mtime 1727846776.6382098
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\schema.py first seen with mtime 1727846855.4906485
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\cache\__init__.py first seen with mtime 1727846855.1876812
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\fields\citext.py first seen with mtime 1727846851.8580315
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\test\client.py first seen with mtime 1727846856.413452
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\utils.py first seen with mtime 1727846851.8371727
+File D:\python\Lib\__future__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\urls.py first seen with mtime 1727846921.845559
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\deconstruct.py first seen with mtime 1727846856.5048387
+File D:\python\Lib\unittest\suite.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\translation.py first seen with mtime 1727846855.242314
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\handlers.py first seen with mtime 1727846855.1280818
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\decorators\cache.py first seen with mtime 1727846856.7273464
+File D:\python\Lib\concurrent\futures\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\importlib\metadata\_adapters.py first seen with mtime 1686142818.0
+File D:\python\Lib\pprint.py first seen with mtime 1686142818.0
+File D:\python\Lib\warnings.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\tokens.py first seen with mtime 1727847012.7375827
+File D:\python\Lib\functools.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\schemas\utils.py first seen with mtime 1727846921.512792
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\actions.py first seen with mtime 1727846842.8584468
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\checks.py first seen with mtime 1727846846.97978
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\client.py first seen with mtime 1727846855.4737597
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\tokens.py first seen with mtime 1727846845.8990343
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\handlers\wsgi.py first seen with mtime 1727846855.3128414
+File D:\python\Lib\email\iterators.py first seen with mtime 1686142818.0
+File D:\python\Lib\ipaddress.py first seen with mtime 1686142818.0
+File D:\python\Lib\wsgiref\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\introspection.py first seen with mtime 1727846855.6843472
+File D:\python\Lib\importlib\resources\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\keyword.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\__init__.py first seen with mtime 1727846856.700526
+File D:\python\Lib\sqlite3\dbapi2.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\filters\right_margin.py first seen with mtime 1727846840.005737
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\mixins.py first seen with mtime 1727846855.798581
+File D:\python\Lib\textwrap.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\uploadedfile.py first seen with mtime 1727846855.2800617
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\static.py first seen with mtime 1727846856.7223854
+File D:\python\Lib\email\mime\nonmultipart.py first seen with mtime 1686142818.0
+File D:\python\Lib\urllib\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\loader_tags.py first seen with mtime 1727846856.336965
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\html.py first seen with mtime 1727846856.550531
+File D:\python\Lib\unittest\case.py first seen with mtime 1686142818.0
+File D:\python\Lib\nturl2path.py first seen with mtime 1686142818.0
+File D:\python\Lib\multiprocessing\context.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\__init__.py first seen with mtime 1727846851.8073728
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\library.py first seen with mtime 1727846856.3319993
+File D:\python\Lib\http\server.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\mime\message.py first seen with mtime 1686142818.0
+File D:\python\Lib\encodings\aliases.py first seen with mtime 1686142818.0
+File D:\python\Lib\importlib\metadata\_collections.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\storage\handler.py first seen with mtime 1727846855.2949605
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\compatibility\__init__.py first seen with mtime 1727846855.247282
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\serializers\base.py first seen with mtime 1727846855.427074
+File D:\python\DLLs\_queue.pyd first seen with mtime 1686142894.0
+File D:\python\Lib\xml\dom\minicompat.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\templatetags\__init__.py first seen with mtime 1727846856.3866336
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\sql\query.py first seen with mtime 1727846855.8502343
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\state.py first seen with mtime 1727846855.7220943
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\timesince.py first seen with mtime 1727846856.6727138
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\sites.py first seen with mtime 1727846842.8842726
+File D:\python\Lib\email\base64mime.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\views\autocomplete.py first seen with mtime 1727846844.9096763
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\templatetags\static.py first seen with mtime 1727846856.4045134
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\test\testcases.py first seen with mtime 1727846856.428355
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\views\decorators.py first seen with mtime 1727846844.911663
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\schemas\__init__.py first seen with mtime 1727846921.5008757
+File D:\python\Lib\email\parser.py first seen with mtime 1686142818.0
+File D:\python\Lib\wsgiref\util.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\autoreload.py first seen with mtime 1727846856.4760346
+File D:\python\Lib\asyncio\events.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\storage\__init__.py first seen with mtime 1727846851.793466
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\servers\__init__.py first seen with mtime 1727846855.4429677
+File D:\python\DLLs\_asyncio.pyd first seen with mtime 1686142918.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\context.py first seen with mtime 1727846856.3081589
+File D:\python\Lib\difflib.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\validators.py first seen with mtime 1727846921.1710854
+File D:\python\Lib\html\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\inspect.py first seen with mtime 1727846856.5703988
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_list.py first seen with mtime 1727846844.8937829
+File D:\python\Lib\encodings\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory\models.py first seen with mtime 1727850509.3800159
+File D:\python\Lib\re\_compiler.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\generic\dates.py first seen with mtime 1727846857.4703588
+File D:\python\Lib\json\scanner.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\operations\special.py first seen with mtime 1727846855.7409675
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\templatetags\cache.py first seen with mtime 1727846856.3965676
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\apps\registry.py first seen with mtime 1727846841.528376
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\base_user.py first seen with mtime 1727846845.8583076
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\exceptions.py first seen with mtime 1727846856.3290198
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\urls.py first seen with mtime 1727846855.2443013
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\constants.py first seen with mtime 1727846851.7755852
+File D:\python\Lib\http\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py first seen with mtime 1727846855.8075204
+File D:\python\Lib\email\contentmanager.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\utils.py first seen with mtime 1727846851.7845244
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\handlers\__init__.py first seen with mtime 1727846855.3029096
+File D:\python\Lib\wsgiref\handlers.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\urls\utils.py first seen with mtime 1727846856.4631202
+File D:\python\Lib\asyncio\format_helpers.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\charset.py first seen with mtime 1686142818.0
+File D:\python\Lib\platform.py first seen with mtime 1686142818.0
+File D:\python\Lib\pathlib.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\constants.py first seen with mtime 1686142818.0
+File D:\python\Lib\pkgutil.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\sql\constants.py first seen with mtime 1727846855.8452659
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\sql\datastructures.py first seen with mtime 1727846855.847255
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\fields\array.py first seen with mtime 1727846851.8550532
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\timezone.py first seen with mtime 1727846856.6746979
+File D:\python\Lib\socketserver.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\_psycopg.cp311-win_amd64.pyd first seen with mtime 1727846996.520627
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\storage\__init__.py first seen with mtime 1727846855.2880065
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\__init__.py first seen with mtime 1727846853.3659115
+File D:\python\Lib\fractions.py first seen with mtime 1686142818.0
+File D:\python\DLLs\_socket.pyd first seen with mtime 1686142894.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\utils.py first seen with mtime 1727846855.2840352
+File D:\python\Lib\unittest\result.py first seen with mtime 1686142818.0
+File D:\python\Lib\threading.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\operations\models.py first seen with mtime 1727846855.737987
+File D:\python\Lib\unittest\util.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\validators.py first seen with mtime 1727846845.9030092
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\decorators.py first seen with mtime 1727846856.5068269
+File D:\python\Lib\urllib\response.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\settings.py first seen with mtime 1727846921.1512206
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\parsers.py first seen with mtime 1727846921.1224127
+File D:\python\Lib\zoneinfo\__init__.py first seen with mtime 1686142818.0
+File D:\python\DLLs\_ssl.pyd first seen with mtime 1686142894.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\utils.py first seen with mtime 1727847012.739568
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\mail\utils.py first seen with mtime 1727846855.3207903
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\functions\datetime.py first seen with mtime 1727846855.8263958
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\utils.py first seen with mtime 1727846855.4658134
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\utils.py first seen with mtime 1727846855.8849998
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\_distutils_hack\__init__.py first seen with mtime 1727846780.5540297
+File D:\python\Lib\queue.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\functions\__init__.py first seen with mtime 1727846855.8224194
+File D:\python\Lib\importlib\metadata\_meta.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\engine\filter_stack.py first seen with mtime 1727846839.9848785
+File D:\python\Lib\reprlib.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\functions\text.py first seen with mtime 1727846855.8343396
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\__init__.py first seen with mtime 1727846921.0737412
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\templatetags\__init__.py first seen with mtime 1727846844.8908033
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\fields\__init__.py first seen with mtime 1727846851.852074
+File D:\python\Lib\importlib\metadata\_text.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\security\csrf.py first seen with mtime 1727846855.257216
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\urls\__init__.py first seen with mtime 1727846856.4372935
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\filters\others.py first seen with mtime 1727846839.9967988
+File D:\python\Lib\sysconfig.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\__init__.py first seen with mtime 1727846855.1171553
+File D:\python\Lib\hmac.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\message.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\filters\aligned_indent.py first seen with mtime 1727846839.994811
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\module_loading.py first seen with mtime 1727846856.5902648
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\aggregates.py first seen with mtime 1727846855.746929
+File D:\python\Lib\struct.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\sql\__init__.py first seen with mtime 1727846855.8403008
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\breadcrumbs.py first seen with mtime 1727846921.8177476
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\middleware.py first seen with mtime 1727846853.374851
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\postgres\fields\hstore.py first seen with mtime 1727846851.8600194
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\handlers\asgi.py first seen with mtime 1727846855.305887
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\__init__.py first seen with mtime 1727846855.2641692
+File D:\python\Lib\wsgiref\simple_server.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\headerregistry.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\management\commands\__init__.py first seen with mtime 1727846855.3575401
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\text.py first seen with mtime 1727846856.670726
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admindocs\utils.py first seen with mtime 1727846844.9245749
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\base.py first seen with mtime 1727846855.7499068
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\cache\backends\base.py first seen with mtime 1727846855.196622
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\functional.py first seen with mtime 1727846856.5266912
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\manage.py first seen with mtime 1727846934.3239098
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory_management\urls.py first seen with mtime 1727850893.1740484
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\files.py first seen with mtime 1727846855.2274146
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\deletion.py first seen with mtime 1727846855.7588465
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\serializers\json.py first seen with mtime 1727846855.4290614
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\views.py first seen with mtime 1727846921.1770456
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\__init__.py first seen with mtime 1727847012.717707
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\serializer_helpers.py first seen with mtime 1727846921.8405905
+File D:\python\Lib\types.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\mail\__init__.py first seen with mtime 1727846855.3168151
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\__init__.py first seen with mtime 1727846855.4568744
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\defaulttags.py first seen with mtime 1727846856.317099
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\views.py first seen with mtime 1727846855.1429832
+File D:\python\Lib\asyncio\subprocess.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\forms\__init__.py first seen with mtime 1727846855.8661265
+File D:\python\Lib\asyncio\threads.py first seen with mtime 1686142818.0
+File D:\python\Lib\email\header.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\operations.py first seen with mtime 1727846855.4856806
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\__init__.py first seen with mtime 1727846845.8473833
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\decorators\debug.py first seen with mtime 1727846856.7382722
+File D:\python\Lib\asyncio\staggered.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py first seen with mtime 1727847012.7197034
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\temp.py first seen with mtime 1727846855.276088
+File D:\python\Lib\inspect.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\middleware\csrf.py first seen with mtime 1727846856.2773688
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\decorators\__init__.py first seen with mtime 1727846856.725359
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\operations\fields.py first seen with mtime 1727846855.7350066
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\asgiref\current_thread_executor.py first seen with mtime 1727846840.9691296
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\indexes.py first seen with mtime 1727846855.766794
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\test\utils.py first seen with mtime 1727846856.4313335
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\conf\global_settings.py first seen with mtime 1727846841.537314
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\fields\json.py first seen with mtime 1727846855.7965934
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\asgiref\sync.py first seen with mtime 1727846840.9770765
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sites\requests.py first seen with mtime 1727846854.1973302
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\engine\statement_splitter.py first seen with mtime 1727846839.9888515
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\backends\base.py first seen with mtime 1727846856.361799
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\loaders\__init__.py first seen with mtime 1727846856.373721
+File D:\python\Lib\asyncio\runners.py first seen with mtime 1686142818.0
+File D:\python\Lib\ast.py first seen with mtime 1686142818.0
+File D:\python\Lib\_compat_pickle.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\views.py first seen with mtime 1727847012.7415571
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\engine\__init__.py first seen with mtime 1727846839.9828916
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\query_utils.py first seen with mtime 1727846855.7797074
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templatetags\__init__.py first seen with mtime 1727846921.8078105
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admindocs\__init__.py first seen with mtime 1727846844.915636
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\http\cookie.py first seen with mtime 1727846856.2147865
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\checks\registry.py first seen with mtime 1727846855.2363544
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\templatetags\l10n.py first seen with mtime 1727846856.4025266
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\views.py first seen with mtime 1727846845.9069805
+File D:\python\Lib\unittest\runner.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\utils.py first seen with mtime 1727846856.3558383
+File D:\python\Lib\xml\dom\NodeFilter.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\response.py first seen with mtime 1727846921.137313
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\utils.py first seen with mtime 1727846842.889239
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\exceptions.py first seen with mtime 1727846855.1698015
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\decorators.py first seen with mtime 1727846842.8653996
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\exceptions.py first seen with mtime 1727846839.942164
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\middleware\security.py first seen with mtime 1727846856.2902834
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory_management\settings.py first seen with mtime 1727932456.9108052
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\middleware.py first seen with mtime 1727846845.879168
+File D:\python\Lib\secrets.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\sqlite3\__init__.py first seen with mtime 1727846855.6644816
+File D:\python\Lib\importlib\abc.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\management\__init__.py first seen with mtime 1727846855.341648
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\features.py first seen with mtime 1727846855.4807136
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\version.py first seen with mtime 1727846856.6816537
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\debug.py first seen with mtime 1727846856.7134373
+File D:\python\Lib\uuid.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\timeouts.py first seen with mtime 1686142818.0
+File D:\python\Lib\collections\abc.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\test\__init__.py first seen with mtime 1727846856.4114664
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\conf\locale\__init__.py first seen with mtime 1727846841.5591662
+File D:\python\Lib\typing.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\psycopg2\sql.py first seen with mtime 1727846996.5444412
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\transaction.py first seen with mtime 1727846855.4529016
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admindocs\views.py first seen with mtime 1727846844.9275577
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\encoding.py first seen with mtime 1727846856.513778
+File D:\python\Lib\importlib\resources\_adapters.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\views\generic\__init__.py first seen with mtime 1727846856.88926
+File D:\python\Lib\re\_casefix.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\representation.py first seen with mtime 1727846921.8386052
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\password_validation.py first seen with mtime 1727846845.894068
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\fields.py first seen with mtime 1727846846.9827588
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\__init__.py first seen with mtime 1727846856.2932591
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\__init__.py first seen with mtime 1727846842.855464
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\dispatch\__init__.py first seen with mtime 1727846855.8581815
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\__init__.py first seen with mtime 1727846855.4687927
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\field_mapping.py first seen with mtime 1727846921.8227122
+File D:\python\Lib\urllib\parse.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\migration.py first seen with mtime 1727846855.7091808
+File D:\python\Lib\multiprocessing\reduction.py first seen with mtime 1686142818.0
+File D:\python\Lib\datetime.py first seen with mtime 1686142818.0
+File D:\python\Lib\quopri.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\backends\base\introspection.py first seen with mtime 1727846855.4836938
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\apps.py first seen with mtime 1727846853.3679006
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\cli.py first seen with mtime 1727846839.9391832
+File D:\python\Lib\xml\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\sqlparse\sql.py first seen with mtime 1727846839.9530923
+File D:\python\Lib\encodings\cp1252.py first seen with mtime 1686142818.0
+File D:\python\Lib\re\__init__.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\negotiation.py first seen with mtime 1727846921.1164532
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\__init__.py first seen with mtime 1727846921.8157597
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\files\storage\mixins.py first seen with mtime 1727846855.2999268
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\humanize_datetime.py first seen with mtime 1727846921.8296654
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\signals.py first seen with mtime 1727846855.175763
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\mediatypes.py first seen with mtime 1727846921.8336387
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\utils\encoders.py first seen with mtime 1727846921.819731
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\storage\base.py first seen with mtime 1727846851.7964468
+File D:\python\Lib\tempfile.py first seen with mtime 1686142818.0
+File D:\python\Lib\asyncio\transports.py first seen with mtime 1686142818.0
+File D:\python\Lib\unittest\__init__.py first seen with mtime 1686142818.0
+File D:\python\Lib\xml\dom\minidom.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\core\mail\message.py first seen with mtime 1727846855.3188019
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\utils\translation\reloader.py first seen with mtime 1727846856.6896002
+File D:\python\Lib\xml\dom\domreg.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework first seen with mtime 1727846921.7790086
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\admin first seen with mtime 1727846921.6508653
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\admin.html first seen with mtime 1727846921.6260345
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\api.html first seen with mtime 1727846921.6280177
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\base.html first seen with mtime 1727846921.6309986
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs first seen with mtime 1727846921.6846383
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\filters first seen with mtime 1727846921.7144403
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal first seen with mtime 1727846921.7432456
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline first seen with mtime 1727846921.772051
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\login.html first seen with mtime 1727846921.6329856
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\login_base.html first seen with mtime 1727846921.635967
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\pagination first seen with mtime 1727846921.7770221
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\raw_data_form.html first seen with mtime 1727846921.6379523
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\schema.js first seen with mtime 1727846921.6399374
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical first seen with mtime 1727846921.80483
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\admin\detail.html first seen with mtime 1727846921.6429205
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\admin\dict_value.html first seen with mtime 1727846921.644906
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\admin\list.html first seen with mtime 1727846921.6468952
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\admin\list_value.html first seen with mtime 1727846921.6498725
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\admin\simple_list_value.html first seen with mtime 1727846921.6518588
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\auth first seen with mtime 1727846921.6826513
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\document.html first seen with mtime 1727846921.6548388
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\error.html first seen with mtime 1727846921.6568224
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\index.html first seen with mtime 1727846921.662786
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\interact.html first seen with mtime 1727846921.6667576
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\langs first seen with mtime 1727846921.7015247
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\link.html first seen with mtime 1727846921.671725
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\sidebar.html first seen with mtime 1727846921.6756992
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\auth\basic.html first seen with mtime 1727846921.6776874
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\auth\session.html first seen with mtime 1727846921.6806667
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\auth\token.html first seen with mtime 1727846921.6826513
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\langs\javascript-intro.html first seen with mtime 1727846921.685635
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\langs\javascript.html first seen with mtime 1727846921.6886127
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\langs\python-intro.html first seen with mtime 1727846921.690598
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\langs\python.html first seen with mtime 1727846921.6925867
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\langs\shell-intro.html first seen with mtime 1727846921.6945734
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\docs\langs\shell.html first seen with mtime 1727846921.7025187
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\filters\base.html first seen with mtime 1727846921.710467
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\filters\ordering.html first seen with mtime 1727846921.7124536
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\filters\search.html first seen with mtime 1727846921.7144403
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\checkbox.html first seen with mtime 1727846921.7184117
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\checkbox_multiple.html first seen with mtime 1727846921.7203987
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\dict_field.html first seen with mtime 1727846921.7223835
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\fieldset.html first seen with mtime 1727846921.724373
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\form.html first seen with mtime 1727846921.7273512
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\input.html first seen with mtime 1727846921.7293396
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\list_field.html first seen with mtime 1727846921.73232
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\list_fieldset.html first seen with mtime 1727846921.7343037
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\radio.html first seen with mtime 1727846921.7372856
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\select.html first seen with mtime 1727846921.7392733
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\select_multiple.html first seen with mtime 1727846921.7412598
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\horizontal\textarea.html first seen with mtime 1727846921.7432456
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\checkbox.html first seen with mtime 1727846921.7472205
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\checkbox_multiple.html first seen with mtime 1727846921.7492065
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\dict_field.html first seen with mtime 1727846921.7511902
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\fieldset.html first seen with mtime 1727846921.7541726
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\form.html first seen with mtime 1727846921.7561595
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\input.html first seen with mtime 1727846921.7581434
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\list_field.html first seen with mtime 1727846921.761126
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\list_fieldset.html first seen with mtime 1727846921.7631128
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\radio.html first seen with mtime 1727846921.7650995
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\select.html first seen with mtime 1727846921.7680776
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\select_multiple.html first seen with mtime 1727846921.7700648
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\inline\textarea.html first seen with mtime 1727846921.7730446
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\pagination\numbers.html first seen with mtime 1727846921.7760253
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\pagination\previous_and_next.html first seen with mtime 1727846921.7780113
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\checkbox.html first seen with mtime 1727846921.7809927
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\checkbox_multiple.html first seen with mtime 1727846921.7829792
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\dict_field.html first seen with mtime 1727846921.7859592
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\fieldset.html first seen with mtime 1727846921.7879443
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\form.html first seen with mtime 1727846921.7909262
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\input.html first seen with mtime 1727846921.7929127
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\list_field.html first seen with mtime 1727846921.7948976
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\list_fieldset.html first seen with mtime 1727846921.7968838
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\radio.html first seen with mtime 1727846921.7998638
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\select.html first seen with mtime 1727846921.8018515
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\select_multiple.html first seen with mtime 1727846921.8038366
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\templates\rest_framework\vertical\textarea.html first seen with mtime 1727846921.8058226
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ach\LC_MESSAGES\django.mo first seen with mtime 1727846921.221748
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ar\LC_MESSAGES\django.mo first seen with mtime 1727846921.2257197
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\az\LC_MESSAGES\django.mo first seen with mtime 1727846921.2326746
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\be\LC_MESSAGES\django.mo first seen with mtime 1727846921.2416122
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\bg\LC_MESSAGES\django.mo first seen with mtime 1727846921.2465794
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ca\LC_MESSAGES\django.mo first seen with mtime 1727846921.251545
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ca_ES\LC_MESSAGES\django.mo first seen with mtime 1727846921.2565134
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\cs\LC_MESSAGES\django.mo first seen with mtime 1727846921.2614782
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\da\LC_MESSAGES\django.mo first seen with mtime 1727846921.2654514
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\de\LC_MESSAGES\django.mo first seen with mtime 1727846921.2694256
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\el\LC_MESSAGES\django.mo first seen with mtime 1727846921.2753901
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\el_GR\LC_MESSAGES\django.mo first seen with mtime 1727846921.2793584
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\en\LC_MESSAGES\django.mo first seen with mtime 1727846921.283333
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\en_AU\LC_MESSAGES\django.mo first seen with mtime 1727846921.2932692
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\en_CA\LC_MESSAGES\django.mo first seen with mtime 1727846921.2992268
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\en_US\LC_MESSAGES\django.mo first seen with mtime 1727846921.3041914
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\es\LC_MESSAGES\django.mo first seen with mtime 1727846921.3101525
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\et\LC_MESSAGES\django.mo first seen with mtime 1727846921.315119
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\fa\LC_MESSAGES\django.mo first seen with mtime 1727846921.3200862
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\fa_IR\LC_MESSAGES\django.mo first seen with mtime 1727846921.3280299
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\fi\LC_MESSAGES\django.mo first seen with mtime 1727846921.3330004
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\fr\LC_MESSAGES\django.mo first seen with mtime 1727846921.3389587
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\fr_CA\LC_MESSAGES\django.mo first seen with mtime 1727846921.344918
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\gl\LC_MESSAGES\django.mo first seen with mtime 1727846921.3498845
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\gl_ES\LC_MESSAGES\django.mo first seen with mtime 1727846921.3548522
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\he_IL\LC_MESSAGES\django.mo first seen with mtime 1727846921.3588278
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\hu\LC_MESSAGES\django.mo first seen with mtime 1727846921.3627982
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\hy\LC_MESSAGES\django.mo first seen with mtime 1727846921.3667717
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\id\LC_MESSAGES\django.mo first seen with mtime 1727846921.3727324
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\it\LC_MESSAGES\django.mo first seen with mtime 1727846921.376706
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ja\LC_MESSAGES\django.mo first seen with mtime 1727846921.380677
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ko_KR\LC_MESSAGES\django.mo first seen with mtime 1727846921.3846514
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\lt\LC_MESSAGES\django.mo first seen with mtime 1727846921.3896194
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\lv\LC_MESSAGES\django.mo first seen with mtime 1727846921.3926
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\mk\LC_MESSAGES\django.mo first seen with mtime 1727846921.396571
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\nb\LC_MESSAGES\django.mo first seen with mtime 1727846921.400545
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ne_NP\LC_MESSAGES\django.mo first seen with mtime 1727846921.4045186
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\nl\LC_MESSAGES\django.mo first seen with mtime 1727846921.408491
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\nn\LC_MESSAGES\django.mo first seen with mtime 1727846921.4114716
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\no\LC_MESSAGES\django.mo first seen with mtime 1727846921.4154463
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\pl\LC_MESSAGES\django.mo first seen with mtime 1727846921.4194205
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\pt\LC_MESSAGES\django.mo first seen with mtime 1727846921.423392
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\pt_BR\LC_MESSAGES\django.mo first seen with mtime 1727846921.4273667
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\pt_PT\LC_MESSAGES\django.mo first seen with mtime 1727846921.4313383
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ro\LC_MESSAGES\django.mo first seen with mtime 1727846921.4363048
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ru\LC_MESSAGES\django.mo first seen with mtime 1727846921.4402792
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\ru_RU\LC_MESSAGES\django.mo first seen with mtime 1727846921.444252
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\sk\LC_MESSAGES\django.mo first seen with mtime 1727846921.448226
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\sl\LC_MESSAGES\django.mo first seen with mtime 1727846921.4512055
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\sv\LC_MESSAGES\django.mo first seen with mtime 1727846921.4551785
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\th\LC_MESSAGES\django.mo first seen with mtime 1727846921.4601462
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\tr\LC_MESSAGES\django.mo first seen with mtime 1727846921.4641192
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\tr_TR\LC_MESSAGES\django.mo first seen with mtime 1727846921.4680922
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\uk\LC_MESSAGES\django.mo first seen with mtime 1727846921.4720657
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\vi\LC_MESSAGES\django.mo first seen with mtime 1727846921.4750445
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\zh_CN\LC_MESSAGES\django.mo first seen with mtime 1727846921.4790177
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\zh_Hans\LC_MESSAGES\django.mo first seen with mtime 1727846921.4829926
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\zh_Hant\LC_MESSAGES\django.mo first seen with mtime 1727846921.4859724
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework\locale\zh_TW\LC_MESSAGES\django.mo first seen with mtime 1727846921.4899447
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\hash_ring.py first seen with mtime 1727851308.7316184
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\client\default.py first seen with mtime 1727851308.7465184
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\__init__.py first seen with mtime 1727846993.37626
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\encoders.py first seen with mtime 1727846993.3841753
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0004_alter_user_username_opts.py first seen with mtime 1727846846.94104
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\client\__init__.py first seen with mtime 1727851308.7435377
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\typing.py first seen with mtime 1727846993.3712814
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\sentinel.py first seen with mtime 1727846993.3682795
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\cluster.py first seen with mtime 1727846993.4056218
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\migrations\0003_logentry_add_action_flag_choices.py first seen with mtime 1727846844.3673172
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory_management\wsgi.py first seen with mtime 1727846934.4174252
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\crc.py first seen with mtime 1727846993.3523874
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\middleware.py first seen with mtime 1727846851.7805517
+File D:\python\Lib\stringprep.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0007_alter_validators_add_error_messages.py first seen with mtime 1727846846.9479933
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0002_alter_permission_name_max_length.py first seen with mtime 1727846846.9370654
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\commands\core.py first seen with mtime 1727846993.4294622
+File D:\python\Lib\encodings\idna.py first seen with mtime 1686142818.0
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\lock.py first seen with mtime 1727846993.4095957
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0009_alter_user_last_name_max_length.py first seen with mtime 1727846846.9529617
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\resp3.py first seen with mtime 1727846993.3946953
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\recorder.py first seen with mtime 1727846855.7171276
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\helpers.py first seen with mtime 1727846993.386161
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\cluster.py first seen with mtime 1727846993.3434477
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\socket.py first seen with mtime 1727846993.3966818
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\migrations\__init__.py first seen with mtime 1727846848.3386562
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\migrations\0001_initial.py first seen with mtime 1727846848.3336926
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\client.py first seen with mtime 1727846993.4026425
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0012_alter_user_first_name_max_length.py first seen with mtime 1727846846.9599144
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\retry.py first seen with mtime 1727846993.412574
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\credentials.py first seen with mtime 1727846993.3543737
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\client\sentinel.py first seen with mtime 1727851308.7504907
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\base.py first seen with mtime 1727846993.379207
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\commands\sentinel.py first seen with mtime 1727846993.436416
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\__init__.py first seen with mtime 1727846846.9619005
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\lock.py first seen with mtime 1727846993.3593404
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0001_initial.py first seen with mtime 1727846846.9340856
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0005_alter_user_last_login_null.py first seen with mtime 1727846846.943026
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\resp2.py first seen with mtime 1727846993.3917072
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\exceptions.py first seen with mtime 1727851308.7276454
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\client.py first seen with mtime 1727846993.340466
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\retry.py first seen with mtime 1727846993.3652997
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\client\sharded.py first seen with mtime 1727851308.7534702
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory\migrations\__init__.py first seen with mtime 1727850396.7920828
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\commands\cluster.py first seen with mtime 1727846993.425488
+File C:\Users\Admin\Desktop\Inventory Management System\inventory_management\inventory\migrations\0001_initial.py first seen with mtime 1727850540.9009452
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\migrations\__init__.py first seen with mtime 1727846854.158591
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\migrations\0001_initial.py first seen with mtime 1727846854.1575954
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\connection.py first seen with mtime 1727846993.4076085
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0010_alter_group_name_max_length.py first seen with mtime 1727846846.9559398
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\migrations\__init__.py first seen with mtime 1727846844.3693027
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\migrations\0001_initial.py first seen with mtime 1727846844.3623507
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\models\sql\compiler.py first seen with mtime 1727846855.8422863
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\exceptions.py first seen with mtime 1727846993.3573537
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\executor.py first seen with mtime 1727846855.7022264
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\utils.py first seen with mtime 1727846993.4195318
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0003_alter_user_email_max_length.py first seen with mtime 1727846846.9390533
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\commands\redismodules.py first seen with mtime 1727846993.4334347
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\middleware\clickjacking.py first seen with mtime 1727846856.271422
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\__init__.py first seen with mtime 1727846993.3996644
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\middleware\common.py first seen with mtime 1727846856.2743883
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\connection.py first seen with mtime 1727846993.349413
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\__init__.py first seen with mtime 1727851308.7236693
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\hiredis.py first seen with mtime 1727846993.3881483
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\cache.py first seen with mtime 1727851308.7256944
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\admin\migrations\0002_logentry_remove_auto_add.py first seen with mtime 1727846844.3643363
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\utils.py first seen with mtime 1727846993.3732471
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\util.py first seen with mtime 1727851308.7375796
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\commands\__init__.py first seen with mtime 1727846993.423502
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\backoff.py first seen with mtime 1727846993.334507
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0011_update_proxy_permissions.py first seen with mtime 1727846846.9579265
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\_parsers\commands.py first seen with mtime 1727846993.3811939
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\__init__.py first seen with mtime 1727846993.3325198
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0006_require_contenttypes_0002.py first seen with mtime 1727846846.9460058
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\migrations\0008_alter_user_username_max_length.py first seen with mtime 1727846846.950974
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\loader.py first seen with mtime 1727846855.7062006
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\client\herd.py first seen with mtime 1727851308.7485054
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\backends\db.py first seen with mtime 1727846853.3907442
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\db\migrations\graph.py first seen with mtime 1727846855.704214
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\cache.py first seen with mtime 1727846993.3374865
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\contenttypes\migrations\0002_remove_content_type_name.py first seen with mtime 1727846848.335677
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\asyncio\sentinel.py first seen with mtime 1727846993.416549
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django_redis\pool.py first seen with mtime 1727851308.7345984
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\redis\commands\helpers.py first seen with mtime 1727846993.4314487
+Not Found: /
+"GET / HTTP/1.1" 404 2384
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2435
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\storage\cookie.py first seen with mtime 1727846851.7984338
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\storage\session.py first seen with mtime 1727846851.8043916
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\sessions\serializers.py first seen with mtime 1727846853.3798196
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\storage\fallback.py first seen with mtime 1727846851.8014114
+"GET /api/token HTTP/1.1" 301 0
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x0000016D72E7B750>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x0000016D72E7B750>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x0000016D72E7B750>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x0000016D72E7B750>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x0000016D72E7B750>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+                      ^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x0000016D72E7B750>}
+Method Not Allowed: /api/token/
+"GET /api/token/ HTTP/1.1" 405 7609
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\auth\context_processors.py first seen with mtime 1727846845.8682408
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\staticfiles\storage.py first seen with mtime 1727846855.130067
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\template\context_processors.py first seen with mtime 1727846856.311139
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\contrib\messages\context_processors.py first seen with mtime 1727846851.7775729
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\conf\locale\en\formats.py first seen with mtime 1727846841.759818
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\rest_framework_simplejwt\serializers.py first seen with mtime 1727847012.730647
+File C:\Users\Admin\Desktop\Inventory Management System\venv\Lib\site-packages\django\conf\locale\en\__init__.py first seen with mtime 1727846841.753859
